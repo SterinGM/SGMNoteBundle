@@ -1,0 +1,12 @@
+notebook:      Notebook
+note_list:     Note list
+create_time:   Create time
+subject:       Subject
+body:          Body
+create_new:    Create a new note
+note_edit:     Note edit
+note_creation: Note creation
+
+create:        Create
+edit:          Edit
+delete:        Delete

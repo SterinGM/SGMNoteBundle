@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping
+        http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
+
+    <class name="SGM\NoteBundle\Model\Note">
+
+        <property name="subject">
+            <constraint name="NotBlank">
+                <option name="message">sgm_note.subject.blank</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="max">50</option>
+                <option name="minMessage">sgm_note.subject.short</option>
+                <option name="maxMessage">sgm_note.subject.long</option>
+            </constraint>
+        </property>
+
+        <property name="body">
+            <constraint name="NotBlank">
+                <option name="message">sgm_note.body.blank</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">sgm_note.body.short</option>
+            </constraint>
+        </property>
+
+    </class>
+
+</constraint-mapping>

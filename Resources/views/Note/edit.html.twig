@@ -1,0 +1,20 @@
+{% extends 'SGMNoteBundle::layout.html.twig' %}
+
+{% block sgm_note_content %}
+    <h1>{% trans from 'SGMNoteBundle' %}note_edit{% endtrans %}</h1>
+
+    <form action="{{ url('sgm_note_edit', { 'noteId': note.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+        {{ form_widget(edit_form) }}
+        <p>
+            <button type="submit">{% trans from 'SGMNoteBundle' %}edit{% endtrans %}</button>
+        </p>
+    </form>
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ url('sgm_note_list') }}">
+                {% trans from 'SGMNoteBundle' %}note_list{% endtrans %}
+            </a>
+        </li>
+    </ul>
+{% endblock %}

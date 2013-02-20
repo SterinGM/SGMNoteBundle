@@ -1,0 +1,45 @@
+{% extends 'SGMNoteBundle::layout.html.twig' %}
+
+{% block sgm_note_content %}
+    <h1>{% trans from 'SGMNoteBundle' %}note_list{% endtrans %}</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>{% trans from 'SGMNoteBundle' %}create_time{% endtrans %}</th>
+                <th>{% trans from 'SGMNoteBundle' %}subject{% endtrans %}</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for note in notes %}
+            <tr>
+                <td>{{ note.createTime|date('Y-m-d H:i:s') }}</td>
+                <td>{{ note.subject }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ url('sgm_note_edit', {'noteId': note.id}) }}">
+                                {% trans from 'SGMNoteBundle' %}edit{% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('sgm_note_delete', {'noteId': note.id, 'token': manager.getToken(note)}) }}">
+                                {% trans from 'SGMNoteBundle' %}delete{% endtrans %}
+                            </a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ url('sgm_note_new') }}">
+                {% trans from 'SGMNoteBundle' %}create_new{% endtrans %}
+            </a>
+        </li>
+    </ul>
+{% endblock %}

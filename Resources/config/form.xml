@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="sgm_note.new_note_form.type.default" class="SGM\NoteBundle\FormType\NewNoteFormType" public="false">
+            <argument>%sgm_note.note_class%</argument>
+        </service>
+
+        <service id="sgm_note.edit_note_form.type.default" class="SGM\NoteBundle\FormType\EditNoteFormType" public="false">
+            <argument>%sgm_note.note_class%</argument>
+        </service>
+
+        <service id="sgm_note.new_note_form.factory.default" class="SGM\NoteBundle\FormFactory\NewNoteFormFactory" public="false">
+            <argument type="service" id="form.factory" />
+            <argument type="service" id="sgm_note.new_note_form.type" />
+            <argument>%sgm_note.new_note_form.name%</argument>
+        </service>
+
+        <service id="sgm_note.edit_note_form.factory.default" class="SGM\NoteBundle\FormFactory\EditNoteFormFactory" public="false">
+            <argument type="service" id="form.factory" />
+            <argument type="service" id="sgm_note.edit_note_form.type" />
+            <argument>%sgm_note.new_note_form.name%</argument>
+        </service>
+
+        <service id="sgm_note.new_note_form.handler.default" class="SGM\NoteBundle\FormHandler\NewNoteFormHandler" scope="request" public="false">
+            <argument type="service" id="request" />
+            <argument type="service" id="sgm_note.note_manager" />
+            <argument type="service" id="sgm_note.user_provider" />
+        </service>
+
+        <service id="sgm_note.edit_note_form.handler.default" class="SGM\NoteBundle\FormHandler\EditNoteFormHandler" scope="request" public="false">
+            <argument type="service" id="request" />
+            <argument type="service" id="sgm_note.note_manager" />
+            <argument type="service" id="sgm_note.user_provider" />
+        </service>
+
+    </services>
+
+</container>

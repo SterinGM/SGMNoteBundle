@@ -1,0 +1,12 @@
+notebook:      Блокнот
+note_list:     Все записи
+create_time:   Время
+subject:       Заголовок
+body:          Текст
+create_new:    Новая запись
+note_edit:     Редактирование
+note_creation: Новая запись
+
+create:        Добавить запись
+edit:          Изменить
+delete:        Удалить

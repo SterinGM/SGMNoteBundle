@@ -1,0 +1,8 @@
+sgm_note:
+    subject:
+        blank: Please enter a subject
+        short: "[-Inf,Inf]The subject is too short"
+        long: "[-Inf,Inf]The subject is too long"
+    body:
+        blank: Please enter a text
+        short: "[-Inf,Inf]The text is too short"

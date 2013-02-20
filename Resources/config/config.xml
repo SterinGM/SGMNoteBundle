@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="sgm_note.user_provider.default" class="SGM\NoteBundle\Security\UserProvider" public="false">
+            <argument type="service" id="security.context" />
+        </service>
+
+        <service id="sgm_note.csrf.note_provider.default" class="SGM\NoteBundle\CsrfProvider\NoteProvider" public="false">
+            <argument>%secret%</argument>
+        </service>
+
+        <service id="sgm_note.authorizer.default" class="SGM\NoteBundle\Security\Authorizer" public="false">
+            <argument type="service" id="sgm_note.user_provider" />
+        </service>
+
+        <service id="sgm_note.provider.default" class="SGM\NoteBundle\Provider\Provider" public="false">
+            <argument type="service" id="sgm_note.note_manager" />
+            <argument type="service" id="sgm_note.authorizer" />
+            <argument type="service" id="sgm_note.user_provider" />
+            <argument type="service" id="sgm_note.csrf.note_provider" />
+        </service>
+
+    </services>
+
+</container>

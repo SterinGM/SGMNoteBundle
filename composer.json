@@ -1,0 +1,24 @@
+{
+    "name": "sgm/note-bundle",
+    "type": "package",
+    "description": "SGM Note bundle",
+    "keywords": ["note", "notebook"],
+    "authors": [
+        {
+            "name": "Grigoriy Sterin",
+            "email": "muxajibi41981@gmail.com",
+            "homepage": "http://zone-code.ru",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+	"friendsofsymfony/user-bundle": "dev-master"
+    },
+    "autoload":{
+        "psr-0":{
+            "SGM\\NoteBundle" : ""
+        }
+    },
+    "target-dir": "SGM/NoteBundle"
+}
